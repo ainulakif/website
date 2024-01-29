@@ -22,9 +22,38 @@ const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
 
-  const handleSearchChange = (e) => {
+  // implementing search
+  // const filterPrompts = (searchtext) => {
+  //   const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+  //   return allPosts.filter(
+  //     (item) =>
+  //       regex.test(item.creator.username) ||
+  //       regex.test(item.prompt) ||
+  //       regex.test(item.tag)
+  //   );
 
-  }
+  // }
+
+  const handleSearchChange = (e) => {}
+  // const handleSearchChange = (e) => {
+  //   clearTimeout(searchTimeout);
+  //   setSearchText(e.target.value);
+
+  //   // debounce method
+  //   setSearchTimeout(
+  //       setTimeout(() => {
+  //         const searchResult = filterPrompts(e.target.value);
+  //         setSearchResults(searchResult);
+  //       }, 500)
+  //   )
+  // }
+
+  // const handleTagClick = (tagname) => {
+  //   setSearchText(tagName);
+
+  //   const searchResult = filterPrompts(tagName);
+  //   setSearchResults(searchResult);
+  // }
 
   // GET request from local API
   useEffect(() => {

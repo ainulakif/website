@@ -27,7 +27,7 @@ function Weather() {
     console.log("Current Weather Response: ", currentWeather);
 
     return (
-        <div className="prompt_card">
+        <div className="prompt_card z-10">
             <Searchbar onSearchChange={handleOnSearchChange} />
            {currentWeather && <CurrentWeather data={currentWeather} />}
 

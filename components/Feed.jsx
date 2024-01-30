@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
+import Weather from "./Weather";
 
 const PrompCardList = ({ data, handleTagClick }) => {
   return (
@@ -34,7 +35,7 @@ const Feed = () => {
 
   // }
 
-  const handleSearchChange = (e) => {}
+  const handleSearchChange = (e) => { }
   // const handleSearchChange = (e) => {
   //   clearTimeout(searchTimeout);
   //   setSearchText(e.target.value);
@@ -72,6 +73,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
+      <Weather />
       <form className="relative w-full flex-center">
         <input
           type="text"
@@ -82,10 +84,9 @@ const Feed = () => {
           className="search_input peer"
         />
       </form>
-
       <PrompCardList
         data={posts}
-        handleTagClick={() => {}}
+        handleTagClick={() => { }}
       />
     </section>
   )

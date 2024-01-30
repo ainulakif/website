@@ -35,7 +35,17 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">Promptopia</p>
+        <p className="logo_text">Portfolio</p>
+      </Link>
+      <Link href="https://promptopia-test-git-weather-app-ainulakif.vercel.app/" target="_blank" className="flex gap-2 flex-left">
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 76 65"
+          fill="none" xmlns="http://www.w3.org/2000/svg"><path
+            d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000000" />
+        </svg>
+        <p className="logo_text">Open Branch</p>
       </Link>
       {/* {alert(providers)} */}
       {/* Desktop Navigation */}
@@ -94,31 +104,31 @@ const Nav = () => {
 
             {toggleDropdown && (
               <div className="dropdown">
-              <Link
-                href="/profile"
-                className="dropdown_link"
-                onClick={() => setToggleDropdown(false)}
-              >
-                My Profile
-              </Link>
-              <Link
-                href="/create-prompt"
-                className="dropdown_link"
-                onClick={() => setToggleDropdown(false)}
-              >
-                Create Prompt
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setToggleDropdown(false);
-                  signOut();
-                }}
-                className="mt-5 w-full black_btn"
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  My Profile
+                </Link>
+                <Link
+                  href="/create-prompt"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className="mt-5 w-full black_btn"
                 // pause at 1:15
-              >
-                Sign Out
-              </button>
+                >
+                  Sign Out
+                </button>
               </div>
             )}
           </div>

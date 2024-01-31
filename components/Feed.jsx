@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
-import Weather from "./Weather";
+import Weather from "./weather/Weather";
 
 const PrompCardList = ({ data, handleTagClick }) => {
   return (

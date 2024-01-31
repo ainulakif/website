@@ -1,5 +1,4 @@
 import Feed from "@components/Feed"
-import Weather from "@components/Weather"
 
 const Home = () => {
   return (

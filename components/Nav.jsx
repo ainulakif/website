@@ -37,7 +37,10 @@ const Nav = () => {
         />
         <p className="logo_text">Portfolio</p>
       </Link>
-      <Link href="https://promptopia-test-git-weather-app-ainulakif.vercel.app/" target="_blank" className="flex gap-2 flex-left">
+      <Link href="/countries" className="flex gap-2 flex-center">
+        <p className="logo_text">Countries</p>
+      </Link>
+      {/* <Link href="https://promptopia-test-git-weather-app-ainulakif.vercel.app/" target="_blank" className="flex gap-2 flex-left">
         <svg
           width="30"
           height="30"
@@ -46,7 +49,7 @@ const Nav = () => {
             d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000000" />
         </svg>
         <p className="logo_text">Open Branch</p>
-      </Link>
+      </Link> */}
       {/* {alert(providers)} */}
       {/* Desktop Navigation */}
       <div className="sm:flex hidden">

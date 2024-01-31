@@ -66,6 +66,7 @@ const Feed = () => {
     }
 
     // console.log(posts);
+    // is this a proper cleaner?
 
     fetchPosts();
   }, []);

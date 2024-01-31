@@ -1,4 +1,5 @@
 import Feed from "@components/Feed"
+import Weather from "@components/Weather"
 
 const Home = () => {
   return (
@@ -12,7 +13,6 @@ const Home = () => {
         <p className="desc text-center">
         My web portfolio showcases a collection of my latest projects. Explore the diverse range of projects to get a glimpse of my capabilities and experience in the field of web development.
         </p>
-
         <Feed />
     </section>
   )

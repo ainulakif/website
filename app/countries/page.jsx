@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Population from "@components/countries/Population";
 
 const Countries = () => {
 
@@ -27,27 +28,7 @@ const Countries = () => {
     return (
         <div>
             <div>Countries</div>
-            <div>
-                <span>
-                    Found {result.length} countries
-                </span>
-            </div>
-            <div>
-                {
-                    result
-                        .sort((a, b) => a.name.common.localeCompare(b.name.common))
-                        .map((country, index) => (
-                            <div key={index}>
-                                <span>
-                                    {country.name.common}
-                                </span>
-                                <span>
-                                    {country.population}
-                                </span>
-                            </div>
-                        ))
-                }
-            </div>
+            <Population data={result} />
         </div>
     )
     //   https://restcountries.com/v3.1/all?fields=name,population

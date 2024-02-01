@@ -1,88 +1,110 @@
-import { Chart as ChartJS } from "chart.js/auto";
-import { Line } from "react-chartjs-2";
-import faker from "faker";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels"
+import { faker } from "@faker-js/faker";
 
 ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    ChartDataLabels
 );
 
 export const options = {
+
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    elements: {
+        bar: {
+            borderWidth: 2,
+        },
+    },
     responsive: true,
+    scales: {
+        x: {
+            ticks: {
+                callback: function (value, index, values) {
+                    // return '$' + value;
+                    let number = value;
+                    let roundedAndFormatted = number >= 1000000
+                        ? Math.floor(number / 1000000) + 'M'
+                        : number >= 1000
+                            ? Math.floor(number / 1000) + ' thousand'
+                            : Math.floor(number).toString();
+
+                    return roundedAndFormatted; // Return the rounded and formatted value as the x-axis label
+                }
+            }
+        }
+    },
     plugins: {
         legend: {
+            display: false,
             position: 'top',
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart',
+            text: 'Chart.js Population by Country Chart',
         },
+        datalabels: {
+            align: 'end',
+            anchor: 'end',
+            color: 'gray',
+            formatter: function (value) {
+                let number = value;
+
+                let roundedAndFormatted = number >= 1000000
+                    ? Math.floor(number / 1000000) + 'M'
+                    : number >= 1000
+                        ? Math.floor(number / 1000) + 'k'
+                        : Math.floor(number).toString();
+
+                return roundedAndFormatted;
+            },
+        }
     },
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-  
-
-const chart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-    options: {
-        onClick: (e) => {
-            const canvasPosition = getRelativePosition(e, chart);
-
-            // Substitute the appropriate scale IDs
-            const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
-            const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
-        }
-    }
-})
 
 const ChartDetails = ({ output }) => {
     return (
-        <div>
-            {/* <canvas> */}
-            <Line
+        <div className="graph_card">
+            {/* <div  className="h-600 w-600"> */}
+            <Bar
+                options={options}
                 data={{
                     labels: output
-                        .slice(0, 5)
-                        .sort((a, b) => a.name.common.localeCompare(b.name.common))
+                        .sort((a, b) => b.population - a.population)
+                        .slice(3, 33)
                         .map(country => country.name.common),
                     datasets: [
                         {
+                            label: "Population",
                             data: output
-                                .slice(0, 5)
-                                .sort((a, b) => a.name.common.localeCompare(b.name.common))
+                                .sort((a, b) => b.population - a.population)
+                                .slice(3, 33)
                                 .map(country => country.population),
-                            backgroundColor: "purple",
+                            borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
                         },
                     ],
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'start',
+                    }
                 }}
             />
-
-            {/* </canvas> */}
         </div>
     )
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Population from "@components/countries/Population";
+import ChartDetails from "@components/countries/ChartDetails";
 
 const Countries = () => {
 
@@ -26,10 +27,11 @@ const Countries = () => {
     // console.log("population: ", result[0].population);
     // console.log("length of array: ", result.length);
     return (
-        <div>
+        <section className="w-full flex-center flex-col" style={{ height: "80vh" }}>
+            <Population data={{}} />
             <div>Countries</div>
-            <Population data={result} />
-        </div>
+            <ChartDetails output={result} />
+        </section>
     )
     //   https://restcountries.com/v3.1/all?fields=name,population
 }

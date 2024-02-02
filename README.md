@@ -28,7 +28,6 @@ A [portfolio website application](https://promptopia-test.vercel.app/) that I ca
 
 - useSearchParams build issues
   - ⚠ Entire page "/update-prompt" deopted into client-side rendering due to "useSearchParams()"
-- make a new and public repository/domain.
 
 - Implement Search
   - Search by prompt
@@ -53,6 +52,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `/Countries` page now shows country by population chart.
   - Incorporated `Chart.js` library with `react-chartjs-2` to visualize the population data.
 - updated git history to filter branches.
+- Domain name changed.
+- Updated Client ID.
 
 ### [1.0.1] - 2024-02-02
 

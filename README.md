@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Edit changelog for v1.0.1.
 - `/Countries` page now shows country by population chart.
   - Incorporated `Chart.js` library with `react-chartjs-2` to visualize the population data.
-- updated git history to filter branches.
+- Updated git history to filter branches.
 - Domain name changed.
 - Updated Client ID.
 

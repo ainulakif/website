@@ -1,76 +1,83 @@
-> Written with [StackEdit](https://stackedit.io/).
-> This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PORTFOLIO PROJECT
+
+A [portfolio website application](https://promptopia-test.vercel.app/) that I can use to showcase my projects in one place. I don't know if it's appropriate but currently this is what I want to do.
+
+>This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's also utilize [Vercel](https://vercel.com/) for deployment and hosting of the web application.
 
 <!-- ctrl + shift + v -->
 
-## Getting Started
+## Changelog
 
-  
+<!-- ### Added
 
-Run the development server:
-```bash
+- Centralize all links into `/data/links.json` so they can be updated easily
 
-npm  run  dev
+### Fixed
 
-```
-Open [http://localhost:3000](http://localhost:3000)  to see the result.
+- Improve French translation (#377).
 
-> This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Changed
 
-  
+- Upgrade dependencies: Ruby 3.2.1, Middleman, etc.
+
+### Removed
+
+- Duplicate index file for the english version -->
+
+### [Unreleased]
+
+- useSearchParams build issues
+  - ⚠ Entire page "/update-prompt" deopted into client-side rendering due to "useSearchParams()"
+- make a new and public repository/domain.
+
+- Implement Search
+  - Search by prompt
+  - Search by tag
+  - Search by username
+
+- Implement Click on tag
+
+- Implement View other profiles
+
+  - Create new dynamic [id] folder in profile
+  - by fetching POST from different users
+
+>The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+### [1.1.0] - 2024-02-xx
+
+#### Changed
+
+- Edit changelog for v1.0.1.
+- `/Countries` page now shows country by population chart.
+  - Incorporated `Chart.js` library with `react-chartjs-2` to visualize the population data.
+- updated git history to filter branches.
+
+### [1.0.1] - 2024-02-02
+
+#### Added
+
+- README and LICENSE files.
+- Integrated Google Cloud APIs into Login page using a unique Client ID.
+  - Create new Prompt and view Profile by logging in.
+  - In Profile, prompt could be editted and deleted.
+- Integrated with the OpenWeatherMap API for current weather data.
+  - Incorporated `react-select-async-paginate` library to supports loading options page by page.
+  - Displays current weather conditions (temperature, humidity, wind speed).
+- a new `/Countries` page that shows Country's population
+  - Integrated with the Rest Countries API to show country names and population.
+
+### Authors and acknowledgment
+
+Special thanks to the Author of these courses:
+
+1. [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) for this [NextJS](https://youtu.be/wm5gMKuwSYk) tutorial where the project based on.
+2. [CodewithSloba](https://www.youtube.com/channel/UCBu5ulO4d-d47lAVybpRTkw) that shows how to [fetch Weather API in React](https://youtu.be/Reny0cTTv24).
 
 ### Resources
+
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-
->  Check out the [Next.js GitHub repository](https://github.com/vercel/next.js/)
-
-## todo
-
-Here are the things that I should do:
- - [ ] Implement Search
-	1. Search by prompt
-	2. Search by tag
-	3. Search by username
-
-- [ ] Implement Click on tag
-
-- [ ] Implement View other profiles
-
-	- Create new dynamic [id] folder in profile
-
-	- by fetching POST from different users
-
-## file structure
-```
-./
-├───app
-│   ├───api
-│   │   ├───auth
-│   │   │   └───[...nextauth]
-│   │   ├───prompt
-│   │   │   ├───new
-│   │   │   └───[id]
-│   │   ├───users
-│   │   │   └───[id]
-│   │   │       └───posts
-│   │   └───weather
-│   ├───create-prompt
-│   ├───profile
-│   ├───update-prompt
-|   └───<layout file here>
-├───components
-│   └───(I need to refactor this folder)
-├───models
-│   └───
-├───public
-│   └───assets
-│       ├───icons
-│       ├───images
-│       └───weather-icons
-├───styles
-└───utils
-```
-
-  
-
-
+- [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.
+- [REST COUNTRIES 🇵🇪](https://restcountries.com/) - Get information about countries via a RESTful API.
+- [OpenWeather API](https://openweathermap.org/api) - Get Current weather data collection.

@@ -20,34 +20,37 @@ const PrompCardList = ({ data, handleTagClick }) => {
 }
 
 const Feed = () => {
+  const [allPosts, setAllPosts] = useState([]);
+  
   const [searchText, setSearchText] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   // implementing search
-  // const filterPrompts = (searchtext) => {
-  //   const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
-  //   return allPosts.filter(
-  //     (item) =>
-  //       regex.test(item.creator.username) ||
-  //       regex.test(item.prompt) ||
-  //       regex.test(item.tag)
-  //   );
+  const filterPrompts = (searchtext) => {
+    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+    return allPosts.filter(
+      (item) =>
+        regex.test(item.creator.username) ||
+        regex.test(item.prompt) ||
+        regex.test(item.tag)
+    );
 
-  // }
+  }
 
-  const handleSearchChange = (e) => { }
-  // const handleSearchChange = (e) => {
-  //   clearTimeout(searchTimeout);
-  //   setSearchText(e.target.value);
+  // const handleSearchChange = (e) => { }
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
 
-  //   // debounce method
-  //   setSearchTimeout(
-  //       setTimeout(() => {
-  //         const searchResult = filterPrompts(e.target.value);
-  //         setSearchResults(searchResult);
-  //       }, 500)
-  //   )
-  // }
+    // debounce method
+    setSearchTimeout(
+        setTimeout(() => {
+          const searchResult = filterPrompts(e.target.value);
+          setSearchResults(searchResult);
+        }, 500)
+    )
+  }
 
   // const handleTagClick = (tagname) => {
   //   setSearchText(tagName);
@@ -62,7 +65,7 @@ const Feed = () => {
       const response = await fetch('/api/prompt');
       const data = await response.json();
 
-      setPosts(data);
+      setAllPosts(data);
     }
 
     // console.log(posts);
@@ -86,7 +89,7 @@ const Feed = () => {
         />
       </form>
       <PrompCardList
-        data={posts}
+        data={searchResults}
         handleTagClick={() => { }}
       />
     </section>

@@ -1,6 +1,6 @@
 # PORTFOLIO PROJECT
 
-A [portfolio website application](https://promptopia-test.vercel.app/) that I can use to showcase my projects in one place. I don't know if it's appropriate but currently this is what I want to do.
+A [portfolio website application](https://ainulakif-website.vercel.app/) that I can use to showcase my projects in one place. I don't know if it's appropriate but currently this is what I want to do.
 
 >This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's also utilize [Vercel](https://vercel.com/) for deployment and hosting of the web application.
 
@@ -41,6 +41,8 @@ A [portfolio website application](https://promptopia-test.vercel.app/) that I ca
   - Create new dynamic [id] folder in profile
   - by fetching POST from different users
 
+- Refactor CSS
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -54,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated git history to filter branches.
 - Domain name changed.
 - Updated Client ID.
+- Repository became public.
 
 ### [1.0.1] - 2024-02-02
 
@@ -69,14 +72,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - a new `/Countries` page that shows Country's population
   - Integrated with the Rest Countries API to show country names and population.
 
-### Authors and acknowledgment
+## Authors and acknowledgment
 
 Special thanks to the Author of these courses:
 
-1. [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) for this [NextJS](https://youtu.be/wm5gMKuwSYk) tutorial where the project based on.
+1. [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) for this [NextJS tutorial](https://youtu.be/wm5gMKuwSYk) where the project based on.
 2. [CodewithSloba](https://www.youtube.com/channel/UCBu5ulO4d-d47lAVybpRTkw) that shows how to [fetch Weather API in React](https://youtu.be/Reny0cTTv24).
 
-### Resources
+## Resources
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.

@@ -41,6 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Implemented Search by prompt, tag and username.
 - Implemented Click on tag and username into search.
 - Implemented View of other profiles as public.
+  - While in session, clicking on other profiles will redirect to their `unique` profile page.
+  - Also, clicking on your own profiles will redirect to `/Profile` page.
+  
+#### Changed
+
 - Modified username's regex to validate test usernames.
 
 ### [1.1.0] - 2024-02-05

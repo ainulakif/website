@@ -38,9 +38,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Added
 
-- Implement Search by prompt, tag and username.
-- Implement Click on tag and username into search.
-- Implement View of other profiles as public.
+- Implemented Search by prompt, tag and username.
+- Implemented Click on tag and username into search.
+- Implemented View of other profiles as public.
+- Modified username's regex to validate test usernames.
 
 ### [1.1.0] - 2024-02-05
 

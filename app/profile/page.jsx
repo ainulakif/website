@@ -20,21 +20,21 @@ const MyProfile = () => {
 
             setPosts(data);
         }
-        
-        
-        if(session?.user.id) fetchPosts();
+
+
+        if (session?.user.id) fetchPosts();
     }, []);
-    
+
     //logic to handle edit and delete       
     const handleEdit = (post) => {
         router.push(`/update-prompt?id=${post._id}`)
         // console.log("inside useffect: ", post._id);
-     }
+    }
 
     const handleDelete = async (post) => {
         const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
 
-        if(hasConfirmed) {
+        if (hasConfirmed) {
             try {
                 // console.log("postId: ", post._id.toString())
                 await fetch(`/api/prompt/${post._id.toString()}`, {
@@ -49,6 +49,7 @@ const MyProfile = () => {
             }
         }
     }
+    console.log("session Post: ", posts);
 
     return (
         <Profile

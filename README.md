@@ -29,11 +29,6 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 - useSearchParams build issues
   - ⚠ Entire page "/update-prompt" deopted into client-side rendering due to "useSearchParams()"
 
-- Implement View other profiles
-
-  - Create new dynamic [id] folder in profile
-  - by fetching POST from different users
-
 - Refactor CSS
 
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -45,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implement Search by prompt, tag and username.
 - Implement Click on tag and username into search.
+- Implement View of other profiles as public.
 
 ### [1.1.0] - 2024-02-05
 

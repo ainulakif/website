@@ -1,0 +1,36 @@
+"use client";
+
+import Profile from '@components/Profile'
+import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
+const ProfilePage = () => {
+    const pathName = usePathname();
+    const userId = pathName.split('/').pop();
+
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const response = await fetch(`/api/users/${userId.toString()}/posts`)
+            const data = await response.json();
+
+            setPosts(data);
+        }
+        fetchPosts();
+    }, [])
+
+    console.log("Post: ", posts);
+
+    return (
+        <Profile
+            name={posts[0]?.creator?.username}
+            desc={`Visiting ${posts[0]?.creator?.username} profile page`}
+            data={posts}
+            handleEdit={() => []}
+            handleDelete={() => { }}
+        />
+    )
+}
+
+export default ProfilePage;

@@ -81,8 +81,11 @@ const Feed = () => {
 
     fetchPosts();
   }, []);
+  
+  // console.log("See allPost: ", allPosts);
+  // console.log("See Post: ", allPosts[0] && allPosts[0].creator._id);
 
-
+  
   return (
     <section className="feed">
       <Weather />

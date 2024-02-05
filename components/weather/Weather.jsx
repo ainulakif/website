@@ -24,7 +24,7 @@ function Weather() {
             .catch((err) => console.log(err));
     }
 
-    console.log("Current Weather Response: ", currentWeather);
+    // console.log("Current Weather Response: ", currentWeather);
 
     return (
         <div className="prompt_card z-10">

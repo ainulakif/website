@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 import Weather from "./weather/Weather";
 
-const PrompCardList = ({ data, handleTagClick }) => {
+const PrompCardList = ({ data, handleUserClick, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
       {data.map((post) => (
@@ -13,6 +13,7 @@ const PrompCardList = ({ data, handleTagClick }) => {
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
+          handleUserClick={handleUserClick}
         />
       ))}
     </div>
@@ -52,12 +53,19 @@ const Feed = () => {
     )
   }
 
-  // const handleTagClick = (tagname) => {
-  //   setSearchText(tagName);
+  const handleUserClick = (userName) => {
+    setSearchText(userName);
 
-  //   const searchResult = filterPrompts(tagName);
-  //   setSearchResults(searchResult);
-  // }
+    const searchResult = filterPrompts(userName);
+    setSearchResults(searchResult);
+  }
+
+  const handleTagClick = (tagName) => {
+    setSearchText(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchResults(searchResult);
+  }
 
   // GET request from local API
   useEffect(() => {
@@ -81,7 +89,7 @@ const Feed = () => {
       <form className="z-0 relative w-full flex-center">
         <input
           type="text"
-          placeholder="Search for a tag or a username"
+          placeholder="Search for a prompt, tag or username"
           value={searchText}
           onChange={handleSearchChange}
           required
@@ -90,7 +98,8 @@ const Feed = () => {
       </form>
       <PrompCardList
         data={searchResults}
-        handleTagClick={() => { }}
+        handleUserClick={handleUserClick}
+        handleTagClick={handleTagClick}
       />
     </section>
   )

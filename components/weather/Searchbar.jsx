@@ -49,6 +49,7 @@ const Searchbar = ({ onSearchChange }) => {
             borderRadius: '5px',
             border: '2px solid #ccc',
             boxShadow: state.isFocused ? '0 0 0 2px #3699FF' : null,
+            width: '350px',
         }),
         option: (provided, state) => ({
             ...provided,

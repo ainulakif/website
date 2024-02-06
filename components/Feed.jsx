@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
-import Weather from "./weather/Weather";
+// import Weather from "./weather/Weather";
 
 const PrompCardList = ({ data, handleUserClick, handleTagClick }) => {
   return (
@@ -87,8 +87,7 @@ const Feed = () => {
 
   
   return (
-    <section className="feed">
-      <Weather />
+    <>
       <form className="z-0 relative w-full flex-center">
         <input
           type="text"
@@ -104,7 +103,7 @@ const Feed = () => {
         handleUserClick={handleUserClick}
         handleTagClick={handleTagClick}
       />
-    </section>
+    </>
   )
 }
 

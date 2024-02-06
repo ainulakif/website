@@ -1,4 +1,6 @@
 import Feed from "@components/Feed"
+import TabbedNavigation from "@components/TabbedNavigation/TabbedNavigation"
+import Weather from "@components/weather/Weather"
 
 const Home = () => {
   return (
@@ -12,7 +14,9 @@ const Home = () => {
         <p className="desc text-center">
         My web portfolio showcases a collection of my latest projects. Explore the diverse range of projects to get a glimpse of my capabilities and experience in the field of web development.
         </p>
-        <Feed />
+        <TabbedNavigation />
+        {/* <Weather />
+        <Feed /> */}
     </section>
   )
 }

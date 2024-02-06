@@ -71,6 +71,40 @@
   }
 }
 
+.tabbed_navigation {
+  margin-top: 1rem; /* mt-16 */
+  margin-left: auto; /* mx-auto */
+  margin-right: auto; /* mx-auto */
+  width: 100%; /* w-full */
+  max-width: 24rem; /* max-w-xl */
+  display: flex; /* flex */
+  justify-content: center; /* justify-center */
+  align-items: center; /* items-center */
+  flex-direction: column; /* flex-col */
+}
+
+.tab_buttons {
+ display: flex;
+  flex-direction: row; /* Update to display tabs in a row */
+  justify-content: center; /* Optional: Center align the tabs */
+}
+
+.tab_buttons button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.tab_buttons button.active {
+  background-color: #e0e0e0;
+}
+
+.tab_content {
+  margin-top: 20px;
+}
+
 /* Tailwind Styles */
 
 .app {

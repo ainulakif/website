@@ -90,9 +90,13 @@
   justify-content: center; /* Optional: Center align the tabs */
 }
 
+.tabbed_btn {
+  @apply border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-neutral-500 hover:text-slate-200 text-center text-sm font-inter flex items-center justify-center;
+}
+
 .tab_buttons button {
   padding: 10px 20px;
-  margin: 0 5px;
+  margin: 0px;
   border: 1px solid #ccc;
   background-color: #f2f2f2;
   cursor: pointer;

@@ -17,9 +17,9 @@ const TabbedNavigation = () => {
     <div className='tabbed_navigation'>
       <section className='feed'>
         <div className='tab_buttons'>
-          <button onClick={() => handleTabClick('tab1')}>Weather</button>
-          <button onClick={() => handleTabClick('tab2')}>Post</button>
-          <button onClick={() => handleTabClick('tab3')}>Population</button>
+          <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>Weather</button>
+          <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Post</button>
+          <button className='tabbed_btn rounded-r-lg' onClick={() => handleTabClick('tab3')}>Population</button>
         </div>
         {
           activeTab === 'tab1' &&

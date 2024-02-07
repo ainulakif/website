@@ -7,12 +7,12 @@ const Home = () => {
     <section className="w-full flex-center flex-col">
         <h1 className="head_text head_center">
             {/* underscore means globals.css */}
-           My Web Portfolio
+           My Website
             <br className="max-md:hidden" />
             <span className="green_gradient text-center"> Multiple Projects</span>
         </h1>
         <p className="desc text-center">
-        My web portfolio showcases a collection of my latest projects. Explore the diverse range of projects to get a glimpse of my capabilities and experience in the field of web development.
+        My web portfolio that consists of several projects.
         </p>
         <TabbedNavigation />
         {/* <Weather />

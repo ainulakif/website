@@ -18,7 +18,7 @@ const TabbedNavigation = () => {
       <section className='feed'>
         <div className='tab_buttons'>
           <button onClick={() => handleTabClick('tab1')}>Weather</button>
-          <button onClick={() => handleTabClick('tab2')}>Prompt</button>
+          <button onClick={() => handleTabClick('tab2')}>Post</button>
           <button onClick={() => handleTabClick('tab3')}>Population</button>
         </div>
         {

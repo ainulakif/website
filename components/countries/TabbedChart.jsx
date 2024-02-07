@@ -29,7 +29,6 @@ const TabbedChart = () => {
     return (
         <section className="w-full flex-center flex-col" style={{ height: "80vh" }}>
             {/* <Population data={{}} /> */}
-            <div>Countries</div>
             <ChartDetails output={result} />
         </section>
     )

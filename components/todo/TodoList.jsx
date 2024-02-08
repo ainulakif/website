@@ -5,38 +5,82 @@ import { useState, useEffect } from 'react';
 const TodoList = ({ submitted }) => {
 
     // initial todo
-    const [todos, setTodos] = useState(['test1', 'test2', 'test3']);
+    const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
     // temp todo
-    const [tempTodos, setTempTodos] = useState(todos);
+    const [tempTodos, setTempTodos] = useState([]);
 
     useEffect(() => {
-            alert("New submitted todos: "+ todos);
-    }, [todos]);
+        const fetchPosts = async () => {
+            const response = await fetch('/api/todolist', {
+                method: 'GET'
+            });
+            const data = await response.json();
+
+            setTodos(data);
+            setTempTodos(data);
+            // const todoOutput =todos?.[0]?.todolist?.map(item => item).join(', ');
+            // setTempTodos([todoOutput]);
+            
+        }
+
+        fetchPosts();
+    }, []);
+
+    useEffect(() => {
+        const todoOutput = tempTodos?.[0]?.todolist?.map(item => item).join(', ');
+            console.log("useeffect temptodos: "+ todoOutput);
+            console.log("current ID: "+ tempTodos._id);
+    }, [tempTodos]);
 
     const currentTodos = () => {
-        alert("Current todos: "+ todos);
+        const todoOutput = todos?.[0]?.todolist?.map(item => item).join(', ');
+        // setTempTodos(todoOutput);
+        console.log("Current todos: " + todoOutput);
     }
 
-    const submitTodos = () => {
+    const submitTodos = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+
+        //const todoOutput = tempTodos?.[0]?.todolist?.map(item => item).join(', ');
+        //console.log("Before submit result: ", todoOutput)
+        try {
+            const response = await fetch('/api/todolist', {
+                method: 'POST',
+                body: JSON.stringify({
+                    todolist: tempTodos[0].todolist
+                })
+            })
+
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setSubmitting(false);
+        }
+
         setTodos(tempTodos);
+        console.log("After submit result: ", todos)
     }
-    
+
     const resetTodos = () => {
         setTempTodos(todos);
     };
 
     const addTodo = () => {
         if (newTodo.trim() !== '') {
-            setTempTodos([...tempTodos, newTodo]);
+            // setTempTodos([...tempTodos, newTodo]);
+            const updatedTodolist = [...(tempTodos[0]?.todolist ?? []), newTodo];
+            setTempTodos([{ ...tempTodos[0], todolist: updatedTodolist }, ...tempTodos.slice(1)]);
             setNewTodo('');
         }
     };
 
     const removeTodo = (index) => {
-        const updatedTodoList = tempTodos.filter((_, i) => i !== index);
-        setTempTodos(updatedTodoList);
+        const updatedTodolist = tempTodos[0].todolist.filter((_, i) => i !== index);
+        setTempTodos([{ ...tempTodos[0], todolist: updatedTodolist }, ...tempTodos.slice(1)]);
     };
 
     return (
@@ -48,7 +92,8 @@ const TodoList = ({ submitted }) => {
             />
             <button onClick={addTodo}>Add</button>
             <ul>
-                {tempTodos.map((todo, index) => (
+                {/* {todos?.[0]?.todolist?.map((todo, index) => ( */}
+                {tempTodos?.[0]?.todolist.map((todo, index) => (
                     <li key={index}>
                         {todo}
                         <button onClick={() => removeTodo(index)}>Remove</button>

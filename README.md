@@ -31,6 +31,8 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Refactor CSS
 
+- !!Move weather/population API into environment variables.
+
 - Showcase mongodb as public (to-do list)
 
 - Make sign-in button disabled while waiting for Auth.

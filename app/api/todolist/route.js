@@ -13,21 +13,29 @@ export const GET = async (request) => {
     }
 }
 
-export const POST = async (req) => {
-    const { todolist } = await req.json();
+export const PUT = async (req) => {
+    const { _id, todolist } = await req.json();
 
     try {
         await connectToDB(process.env.dbName2);
-        const newTodolist = new Todolist({
-            todolist
-        })
 
-        await newTodolist.save();
+        const existingTodolist = await Todolist.findById(process.env.STATIC_REQUEST);
+        if(!existingTodolist) {
+            return new Response("Todolist not found", { status: 404 });
+        }
+
+        existingTodolist.todolist = todolist;
+
+        // const newTodolist = new Todolist({
+        //     todolist
+        // })
+
+        await existingTodolist.save();
 
         return new Response(
-            JSON.stringify(newTodolist), { status: 201 }
+            JSON.stringify(existingTodolist), { status: 200 }
         )
     } catch (error) {
-        return new Response("Failed to create a new todolist", { status: 500 })
+        return new Response("Failed to update the todolist", { status: 500 })
     }
 }

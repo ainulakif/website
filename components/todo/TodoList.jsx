@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 const TodoList = ({ submitted }) => {
 
+    const static_request= process.env.STATIC_REQUEST;
+
     // initial todo
     const [todos, setTodos] = useState([]);
     const [newTodo, setNewTodo] = useState('');
@@ -18,7 +20,7 @@ const TodoList = ({ submitted }) => {
                 method: 'GET'
             });
             const data = await response.json();
-
+            
             setTodos(data);
             setTempTodos(data);
             // const todoOutput =todos?.[0]?.todolist?.map(item => item).join(', ');
@@ -29,10 +31,10 @@ const TodoList = ({ submitted }) => {
         fetchPosts();
     }, []);
 
+    // console.log("current id: ", todos?.[0]?._id)
     useEffect(() => {
         const todoOutput = tempTodos?.[0]?.todolist?.map(item => item).join(', ');
             console.log("useeffect temptodos: "+ todoOutput);
-            console.log("current ID: "+ tempTodos._id);
     }, [tempTodos]);
 
     const currentTodos = () => {
@@ -42,6 +44,11 @@ const TodoList = ({ submitted }) => {
     }
 
     const submitTodos = async (e) => {
+        if (!(tempTodos?.[0]?.todolist?.length > 0)) {
+            alert("list cannot be empty!");
+            return;
+          }
+          
         e.preventDefault();
         setSubmitting(true);
 
@@ -49,7 +56,7 @@ const TodoList = ({ submitted }) => {
         //console.log("Before submit result: ", todoOutput)
         try {
             const response = await fetch('/api/todolist', {
-                method: 'POST',
+                method: 'PUT',
                 body: JSON.stringify({
                     todolist: tempTodos[0].todolist
                 })
@@ -100,7 +107,7 @@ const TodoList = ({ submitted }) => {
                     </li>
                 ))}
             </ul>
-            <button onClick={submitTodos}>Submit</button>
+            <button onClick={tempTodos?.[0]?.todolist?.length > 0 ? submitTodos : null}>Submit</button>
             <button onClick={resetTodos}>Reset</button>
             <button onClick={currentTodos}>Show</button>
         </div>

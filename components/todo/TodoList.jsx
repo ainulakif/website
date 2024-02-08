@@ -5,11 +5,10 @@ import { useState, useEffect } from 'react';
 const TodoList = ({ submitted }) => {
 
     // initial todo
-    const [todos, setTodoList] = useState(['test1', 'test2', 'test3']);
+    const [todos, setTodos] = useState(['test1', 'test2', 'test3']);
     const [newTodo, setNewTodo] = useState('');
 
     // temp todo
-    // const tempTodos = setTodoList;
     const [tempTodos, setTempTodos] = useState(todos);
 
     useEffect(() => {
@@ -21,7 +20,7 @@ const TodoList = ({ submitted }) => {
     }
 
     const submitTodos = () => {
-        setTodoList(tempTodos);
+        setTodos(tempTodos);
     }
     
     const resetTodos = () => {

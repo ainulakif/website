@@ -19,21 +19,21 @@ const TabbedNavigation = () => {
       <section className='feed'>
         <div className='tab_buttons'>
           <button className='tabbed_btn rounded-r-lg' onClick={() => handleTabClick('tab4')}>to-do list</button>
-          {/* <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>Weather</button>
           <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Post</button>
+          {/* <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>Weather</button>
           <button className='tabbed_btn' onClick={() => handleTabClick('tab3')}>Population</button> */}
         </div>
         {
           activeTab === 'tab4' &&
           <ToDo />
         }
-        {/* {
-          activeTab === 'tab1' &&
-          <Weather />
-        }
         {
           activeTab === 'tab2' &&
           <Feed />
+        }
+        {/* {
+          activeTab === 'tab1' &&
+          <Weather />
         }
         {
           activeTab === 'tab3' &&

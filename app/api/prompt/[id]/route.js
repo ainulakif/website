@@ -4,7 +4,7 @@ import Prompt from "@models/prompt";
 // GET (read request)
 export const GET = async (request, { params }) => {
     try {
-        await connectToDB();
+        await connectToDB(process.env.dbName1);
 
         const prompt = await Prompt.findById(params.id).populate('creator');
         
@@ -22,7 +22,7 @@ export const PATCH = async (request, { params }) => {
     const { prompt, tag } = await request.json();
 
     try {
-        await connectToDB();
+        await connectToDB(process.env.dbName1);
 
         const existingPrompt = await Prompt.findById(params.id);
 
@@ -42,7 +42,7 @@ export const PATCH = async (request, { params }) => {
 // DELETE (delete request)
 export const DELETE = async (request, { params }) => {
     try {
-        await connectToDB();
+        await connectToDB(process.env.dbName1);
         // deprecated
         // await Prompt.findByIdAndRemove(params.id);
         await Prompt.findByIdAndDelete(params.id);

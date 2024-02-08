@@ -33,6 +33,11 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Showcase mongodb as public (to-do list)
 
+- Make sign-in button disabled while waiting for Auth.
+
+- Modify database connection to accept its name as a parameter.
+  - Move parameter into environment variables.
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 

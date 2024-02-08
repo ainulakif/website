@@ -6,7 +6,7 @@ import Prompt from "@models/prompt";
 
 export const GET = async (request, { params }) => {
     try {
-        await connectToDB();
+        await connectToDB(process.env.dbName1);
 
         const prompts = await Prompt.find({
             //[id] as dynamic paramter

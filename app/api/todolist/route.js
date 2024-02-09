@@ -10,7 +10,10 @@ export const GET = async (request) => {
 
         return new Response(JSON.stringify(todolists), { status: 200 })
     } catch (error) {
-        return new Response("Failed to fetch all prompts", { status: 500 })
+        return new Response(
+            JSON.stringify({ error: "Failed to create a new todo" }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
     }
 }
 

@@ -26,6 +26,12 @@ const TodoList = () => {
         fetchPosts();
     }, [])
 
+    useEffect(() => {
+        // console.log("full todos: ", todos);
+        // console.log("todos: ", todos?.[0]?._id);
+    }, [todos])
+
+
     const addTodo = async (todolist) => {
         try {
             const response = await fetch('api/todolist', {
@@ -38,11 +44,11 @@ const TodoList = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            response.json()
-                .then(data => console.log(data))
-                .catch(error => console.error("Error parsing JSON:", error));
-            // const newTodo = await response.json();
-            // setTodos([...todos, newTodo]);
+            // response.json()
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error("Error parsing JSON:", error));
+            const newTodo = await response.json();
+            setTodos([...todos, newTodo]);
         } catch (error) {
             console.error("Error when adding item.", error.message);
         }
@@ -52,22 +58,33 @@ const TodoList = () => {
 
     }
 
-    const deleteTodo = (id) => {
+    const deleteTodo = async (id) => {
+        try {
+            await fetch(`/api/todolist/${id.toString()}`, {
+                method: 'DELETE'
+            });
 
+            const deletedItem = todos.filter((todo) => todo._id !== id);
+
+            setTodos(deletedItem);
+
+        } catch (error) {
+            console.error("Error when deleting item.", error.message);
+        }
     }
-
     return (
         <>
             <h1>Todo List</h1>
             <TodoForm addTodo={addTodo} />
             <ul>
-                {todos.map(todo => (
-                    <TodoItem
-                        key={todo.id}
-                        todo={todo}
-                        toggleTodo={toggleTodo}
-                        deleteTodo={deleteTodo}
-                    />
+                {todos.map((todo, index) => (
+                    <li key={todo._id}>
+                        <TodoItem
+                            todo={todo}
+                            toggleTodo={toggleTodo}
+                            deleteTodo={deleteTodo}
+                        />
+                    </li>
                 ))}
             </ul>
         </>

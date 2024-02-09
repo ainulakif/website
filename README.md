@@ -34,6 +34,11 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 - !!Move weather/population API into environment variables.
 
 - Showcase mongodb as public (to-do list)
+  - Add radio button for done/undone.
+  - Instead of remove the list item, update item to strikethrough.
+  - Nested lists (maybe after layouting the css).
+    - Lists is better if refer each list with their own radio button.
+    - at the same time, I could prepare that nested lists.
 
 - Make sign-in button disabled while waiting for Auth.
 

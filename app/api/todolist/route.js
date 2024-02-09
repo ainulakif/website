@@ -1,6 +1,7 @@
 import { connectToDB } from "@utils/database";
 import Todolist from "@models/todolist";
 
+// retrieve all Todo items
 export const GET = async (request) => {
     try {
         await connectToDB(process.env.dbName2);
@@ -13,9 +14,11 @@ export const GET = async (request) => {
     }
 }
 
+// Update an existing Todo items
 export const PUT = async (req) => {
     const { _id, todolist } = await req.json();
-
+    
+    
     try {
         await connectToDB(process.env.dbName2);
 
@@ -38,4 +41,14 @@ export const PUT = async (req) => {
     } catch (error) {
         return new Response("Failed to update the todolist", { status: 500 })
     }
+}
+
+// Create a new Todo items
+export const POST = async () => {
+
+}
+
+// Delete a Todo items
+export const DELETE = async () => {
+    
 }

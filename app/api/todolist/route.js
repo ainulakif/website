@@ -44,7 +44,29 @@ export const PUT = async (req) => {
 }
 
 // Create a new Todo items
-export const POST = async () => {
+export const POST = async (request) => {
+    const { todolist, isComplete } = await request.json();
+    // console.log("-title: ", title, "-isComplete: ", isComplete);
+
+    try {
+        await connectToDB(process.env.dbName2);
+        const newTodolist = new Todolist({
+            todolist,
+            isComplete
+        })
+
+        await newTodolist.save();
+
+        return new Response(
+            JSON.stringify(newTodolist), { status: 201 }
+        )
+
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ error: "Failed to create a new todo" }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
+    }
 
 }
 

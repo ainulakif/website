@@ -39,6 +39,7 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
   - Nested lists (maybe after layouting the css).
     - Lists is better if refer each list with their own radio button.
     - at the same time, I could prepare that nested lists.
+  - Editing list item should be possible.
 
 - Make sign-in button disabled while waiting for Auth.
 

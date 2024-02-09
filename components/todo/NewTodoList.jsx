@@ -28,7 +28,7 @@ const TodoList = () => {
 
     useEffect(() => {
         // console.log("full todos: ", todos);
-        // console.log("todos: ", todos?.[0]?._id);
+        // console.log("todos: ", todos?.[0]?.isComplete);
     }, [todos])
 
 
@@ -54,8 +54,31 @@ const TodoList = () => {
         }
     }
 
-    const toggleTodo = (id) => {
+    const toggleTodo = async (id) => {
+        try {
+            const response = await fetch(`/api/todolist/${id.toString()}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    isComplete: !todos.find((todo) => todo._id === id).isComplete
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
 
+            const updatedTodo = await response.json();
+
+            const updatingTodos = todos.map(todo => {
+                if(todo._id === id) {
+                    return { ...todo, isComplete: updatedTodo.isComplete}
+                }
+                return todo;
+            });
+
+            setTodos(updatingTodos);
+        } catch (error) {
+            console.error("Error when toggling item.", error.message)
+        }
     }
 
     const deleteTodo = async (id) => {

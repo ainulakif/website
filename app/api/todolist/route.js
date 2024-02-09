@@ -17,35 +17,6 @@ export const GET = async (request) => {
     }
 }
 
-// Update an existing Todo items
-export const PUT = async (req) => {
-    const { _id, todolist } = await req.json();
-    
-    
-    try {
-        await connectToDB(process.env.dbName2);
-
-        const existingTodolist = await Todolist.findById(process.env.STATIC_REQUEST);
-        if(!existingTodolist) {
-            return new Response("Todolist not found", { status: 404 });
-        }
-
-        existingTodolist.todolist = todolist;
-
-        // const newTodolist = new Todolist({
-        //     todolist
-        // })
-
-        await existingTodolist.save();
-
-        return new Response(
-            JSON.stringify(existingTodolist), { status: 200 }
-        )
-    } catch (error) {
-        return new Response("Failed to update the todolist", { status: 500 })
-    }
-}
-
 // Create a new Todo items
 export const POST = async (request) => {
     const { todolist, isComplete } = await request.json();

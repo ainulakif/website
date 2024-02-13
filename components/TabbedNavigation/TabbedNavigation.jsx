@@ -8,7 +8,7 @@ import ToDo from '@components/todo/ToDo';
 import TodoList from '@components/todo/NewTodoList';
 
 const TabbedNavigation = () => {
-  const [activeTab, setActiveTab] = useState('tab2');
+  const [activeTab, setActiveTab] = useState('tab1');
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);

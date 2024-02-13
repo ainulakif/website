@@ -5,7 +5,7 @@ import Todolist from "@models/todolist";
 export const DELETE = async (request, { params }) => {
     try {
         await connectToDB(process.env.dbName2);
-        // await Todolist.findByIdAndDelete(params.id);
+        await Todolist.findByIdAndDelete(params.id);
 
         return new Response("Todolist deleted successfully", { status: 200 })
     } catch (error) {
@@ -32,9 +32,9 @@ export const PUT = async (request, { params }) => {
             );
         }
 
-        // updatingToggle.isComplete = isComplete;
+        updatingToggle.isComplete = isComplete;
 
-        // await updatingToggle.save();
+        await updatingToggle.save();
 
         return new Response(JSON.stringify(updatingToggle), { status: 200 })
     } catch (error) {

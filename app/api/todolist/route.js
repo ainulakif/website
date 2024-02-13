@@ -20,8 +20,7 @@ export const GET = async (request) => {
 // Create a new Todo items
 export const POST = async (request) => {
     const { todolist, isComplete } = await request.json();
-    // console.log("-title: ", title, "-isComplete: ", isComplete);
-
+    
     try {
         await connectToDB(process.env.dbName2);
         const newTodolist = new Todolist({
@@ -29,7 +28,7 @@ export const POST = async (request) => {
             isComplete
         })
 
-        // await newTodolist.save();
+        await newTodolist.save();
 
         return new Response(
             JSON.stringify(newTodolist), { status: 201 }
@@ -42,9 +41,4 @@ export const POST = async (request) => {
         );
     }
 
-}
-
-// Delete a Todo items
-export const DELETE = async () => {
-    
 }

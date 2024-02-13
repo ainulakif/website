@@ -8,7 +8,7 @@ import ToDo from '@components/todo/ToDo';
 import TodoList from '@components/todo/NewTodoList';
 
 const TabbedNavigation = () => {
-  const [activeTab, setActiveTab] = useState('tab4');
+  const [activeTab, setActiveTab] = useState('tab1');
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -19,27 +19,27 @@ const TabbedNavigation = () => {
     <div className='tabbed_navigation'>
       <section className='feed'>
         <div className='tab_buttons'>
-          <button className='tabbed_btn rounded-r-lg' onClick={() => handleTabClick('tab4')}>to-do list</button>
-          {/* <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Post</button> */}
-          {/* <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>Weather</button>
-          <button className='tabbed_btn' onClick={() => handleTabClick('tab3')}>Population</button> */}
+          <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>to-do list</button>
+          <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Weather</button>
+          <button className='tabbed_btn' onClick={() => handleTabClick('tab3')}>Post</button>
+          <button className='tabbed_btn rounded-r-lg' onClick={() => handleTabClick('tab4')}>Population</button>
         </div>
         {
-          activeTab === 'tab4' &&
+          activeTab === 'tab1' &&
           <TodoList />
         }
-        {/* {
+        {
           activeTab === 'tab2' &&
           <Feed />
-        } */}
-        {/* {
-          activeTab === 'tab1' &&
-          <Weather />
         }
         {
           activeTab === 'tab3' &&
+          <Weather />
+        }
+        {
+          activeTab === 'tab4' &&
           <TabbedChart />
-        } */}
+        }
       </section>
     </div>
     // </section>

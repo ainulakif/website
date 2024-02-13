@@ -49,7 +49,7 @@ const MyProfile = () => {
             }
         }
     }
-    console.log("session Post: ", posts);
+    // console.log("session Post: ", posts);
 
     return (
         <Profile

@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 
-const PromptCard = ({ key, post, handleUserClick, handleTagClick, handleEdit, handleDelete }) => {
+const PromptCard = ({ post, handleUserClick, handleTagClick, handleEdit, handleDelete }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();

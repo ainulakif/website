@@ -31,8 +31,32 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Refactor CSS
 
+- !!Move weather/population API into environment variables.
+
+- Showcase mongodb as public (to-do list)
+  - ~~Add radio button for done/undone.~~
+  - ~~Instead of remove the list item, update item to strikethrough.~~
+  - Nested lists (maybe after layouting the css).
+    - Lists is better if refer each list with their own radio button.
+    - at the same time, I could prepare that nested lists.
+  - Editing list item should be possible.
+
+- Make sign-in button disabled while waiting for Auth.
+
+- Setup a new method to connect to multiple database.
+  - ~~Modify database connection to accept its name as a parameter.~~
+  - ~~Move parameter into environment variables.~~
+  - Currently connect to the same db.
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+### [1.4.9] - 2024-02-13
+
+#### Added
+
+- To-do list
+  - Showcase mongodb usecase as public.
 
 ### [1.3.3] - 2024-02-07
 

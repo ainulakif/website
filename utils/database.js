@@ -1,25 +1,52 @@
 import mongoose from "mongoose";
 
-let isConnected = false; // track connection status
+// let isConnected = false; // track connection status
+const connections = {};
 
-export const connectToDB = async () => {
+export const connectToDB = async (dbParameter) => {
     mongoose.set('strictQuery', true);
 
-    if(isConnected) {
-        console.log('MongoDB is already connected');
+    // if(isConnected) {
+    //     console.log('MongoDB is already connected to: ', dbParameter);
+    // }
+    if (connections[dbParameter]) {
+        console.log(`MongoDB is already connected to: ${dbParameter}`);
+        // return;
     }
 
+    // try {
+    //     await mongoose.connect(process.env.MONGODB_URI, {
+    //         dbName: dbParameter,
+    //         // useNewUrlParser: true,
+    //         // useUnifiedTopology: true,
+    //     })
+    //     isConnected = true;
+
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "share_prompt",
-            // useNewUrlParser: true,
-            // useUnifiedTopology: true,
+        // const newConnection = await mongoose.createConnection(process.env.MONGODB_URI, {
+        //     dbName: dbParameter,
+        // })
+        const newConnection = await mongoose.connect(process.env.MONGODB_URI, {
+            dbName: dbParameter,
         })
 
-        isConnected = true;
+        connections[dbParameter] = newConnection;
 
-        console.log('MongoDB connected');
+        console.log(`MongoDB is connected to: ${dbParameter}`);
     } catch (error) {
         console.log("error on database.js: ",error);
+    }
+
+    //     console.log('MongoDB is connected to: ', dbParameter);
+    // } catch (error) {
+    //     console.log("error on database.js: ",error);
+    // }
+}
+
+export const closeConnection = async (dbParameter) => {
+    if (connections[dbParameter]) {
+        await connections[dbParameter].close();
+        delete connections[dbParameter];
+        console.log(`MongoDB connection to ${dbParameter} closed`);
     }
 }

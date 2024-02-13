@@ -27,7 +27,7 @@ const TodoList = () => {
     }, [])
 
     useEffect(() => {
-        // console.log("full todos: ", todos);
+        console.log("full todos: ", todos);
         // console.log("todos: ", todos?.[0]?.isComplete);
     }, [todos])
 

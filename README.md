@@ -51,12 +51,16 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [1.4.9] - 2024-02-13
+### [1.4.10] - 2024-02-13
 
 #### Added
 
 - To-do list
   - Showcase mongodb usecase as public.
+
+#### Changed
+
+- Added log for debug at Feed and TodoList.
 
 ### [1.3.3] - 2024-02-07
 

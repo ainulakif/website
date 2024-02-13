@@ -29,7 +29,7 @@ export const POST = async (request) => {
             isComplete
         })
 
-        await newTodolist.save();
+        // await newTodolist.save();
 
         return new Response(
             JSON.stringify(newTodolist), { status: 201 }

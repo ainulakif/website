@@ -8,7 +8,7 @@ import ToDo from '@components/todo/ToDo';
 import TodoList from '@components/todo/NewTodoList';
 
 const TabbedNavigation = () => {
-  const [activeTab, setActiveTab] = useState('tab1');
+  const [activeTab, setActiveTab] = useState('tab2');
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -19,9 +19,9 @@ const TabbedNavigation = () => {
     <div className='tabbed_navigation'>
       <section className='feed'>
         <div className='tab_buttons'>
-          <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>to-do list</button>
-          <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Weather</button>
-          <button className='tabbed_btn' onClick={() => handleTabClick('tab3')}>Post</button>
+          <button className='tabbed_btn rounded-l-lg' onClick={() => handleTabClick('tab1')}>To-do</button>
+          <button className='tabbed_btn' onClick={() => handleTabClick('tab2')}>Post</button>
+          <button className='tabbed_btn' onClick={() => handleTabClick('tab3')}>Weather</button>
           <button className='tabbed_btn rounded-r-lg' onClick={() => handleTabClick('tab4')}>Population</button>
         </div>
         {

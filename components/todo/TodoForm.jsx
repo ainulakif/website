@@ -13,15 +13,15 @@ const TodoForm = ({ addTodo }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-4 mb-4">
+        <form onSubmit={handleSubmit} className="mb-4">
             <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Add a new todo..."
-                className="border border-gray-300 rounded-md p-2"
+                className="border border-gray-300 rounded-l-md p-2"
             />
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">Add</button>
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-md">Add</button>
         </form>
     )
 }

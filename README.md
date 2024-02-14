@@ -55,7 +55,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Added
 
-- Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel
+- Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
+
+#### Changed
+
+- Updated metadata configuration.
 
 ### [1.4.10] - 2024-02-13
 
@@ -132,3 +136,4 @@ Special thanks to the Author of these courses:
 - [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.
 - [REST COUNTRIES 🇵🇪](https://restcountries.com/) - Get information about countries via a RESTful API.
 - [OpenWeather API](https://openweathermap.org/api) - Get Current weather data collection.
+- [Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) - Recommended to built in `generateMetaData` method.

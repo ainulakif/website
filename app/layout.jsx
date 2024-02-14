@@ -5,8 +5,8 @@ import Provider from "@components/Provider";
 import "@styles/globals.css";
 
 export const metadata = {
-    title: "Website",
-    description: "Ainul Akif's website"
+    title: "Website | Powered by Vercel | Learn Next.js",
+    description: "This website is powered by Vercel. Use it to learn Next.js and build efficient web applications.",
 }
 
 const RootLayout = ({ children }) => {

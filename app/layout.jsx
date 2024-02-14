@@ -1,5 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 
+import JsonLd from "@components/JsonLd";
+
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import "@styles/globals.css";
@@ -14,6 +16,7 @@ const RootLayout = ({ children }) => {
         <html lang="en">
             <head>
                 <link rel="icon" href="/assets/images/icon-fav.png" sizes="32x32" />
+                <JsonLd />
             </head>
             <body>
                 <Provider>

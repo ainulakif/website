@@ -56,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Added
 
 - Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
+- Implemented JsonLd into the head element.
 
 #### Changed
 

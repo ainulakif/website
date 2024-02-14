@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
     return (
         <html lang="en">
             <head>
-                <link rel="icon" href="/assets/images/icon-fav.png" sizes="any" />
+                <link rel="icon" href="/assets/images/icon-fav.png" sizes="32x32" />
             </head>
             <body>
                 <Provider>

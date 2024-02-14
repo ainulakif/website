@@ -59,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Changed
 
-- Updated metadata configuration.
+- Updated static metadata configuration.
 
 ### [1.4.10] - 2024-02-13
 

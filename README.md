@@ -51,8 +51,10 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 - Provide fallback title to children for SEO on each document.
   - [x] update-prompt page
   - [x] static profile page
-  - [ ] dynamic profile page
+  - [x] dynamic profile page
   - [ ] create-prompt page
+
+- Create a 404 landing page
 
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).

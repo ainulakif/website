@@ -9,9 +9,10 @@ import "@styles/globals.css";
 export const metadata = {
     title: {
         template: "%s | Powered by Vercel | Learn Next.js",
-        default: "Homepage | Powered by Vercel | Learn Next.js"
+        default: "Website | Powered by Vercel | Learn Next.js"
     },
     description: "This website is powered by Vercel. Use it to learn Next.js and build efficient web applications.",
+    keywords: ['Next.js', 'React', 'JavaScript'],
 }
 
 const RootLayout = ({ children }) => {

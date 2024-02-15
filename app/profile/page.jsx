@@ -21,9 +21,9 @@ const MyProfile = () => {
             setPosts(data);
         }
 
-
-        if (session?.user.id) fetchPosts();
+        session?.user.id ? fetchPosts() : router.push("/");
     }, []);
+    
 
     //logic to handle edit and delete       
     const handleEdit = (post) => {

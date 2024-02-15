@@ -3,10 +3,10 @@
 // import { useState, useEffect } from 'react';
 // import { useRouter, useSearchParams } from 'next/navigation';
 
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 
-import Form from "@components/Form";
-import UpdatePrompt from '@components/update-prompt/UpdatePrompt';
+// import Form from "@components/Form";
+import UpdatePrompt from '@components/prompt/UpdatePrompt';
 
 export const metadata = {
     title: "Update Prompt"

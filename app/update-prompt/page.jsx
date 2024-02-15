@@ -1,18 +1,23 @@
-"use client";
+// "use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+// import { useState, useEffect } from 'react';
+// import { useRouter, useSearchParams } from 'next/navigation';
 
 import { Suspense } from 'react';
 
 import Form from "@components/Form";
+import UpdatePrompt from '@components/update-prompt/UpdatePrompt';
+
+export const metadata = {
+    title: "Update Prompt"
+}
 
 const EditPrompt = () => {
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const promptId = searchParams.get('id');
+    //     const router = useRouter();
+    // const searchParams = useSearchParams();
+    // const promptId = searchParams.get('id');
     // console.log("promptId output: ", promptId);
-
+    {/*
     const [submitting, setSubmitting] = useState(false);
     const [post, setPost] = useState({
         prompt: '',
@@ -57,19 +62,21 @@ const EditPrompt = () => {
             setSubmitting(false);
         }
     }
-    
+*/}
 
     return (
 
-        <Suspense fallback={<>Loading...</>}>
-            <Form
-                type="Edit"
-                post={post}
-                setPost={setPost}
-                submitting={submitting}
-                handleSubmit={updatePrompt}
-            />
-        </Suspense>
+        <UpdatePrompt />
+
+        // <Suspense fallback={<>Loading...</>}>
+        //     <Form
+        //         type="Edit"
+        //         post={post}
+        //         setPost={setPost}
+        //         submitting={submitting}
+        //         handleSubmit={updatePrompt}
+        //     />
+        // </Suspense>
     )
 }
 

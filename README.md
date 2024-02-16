@@ -52,7 +52,15 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
   - [x] update-prompt page
   - [x] static profile page
   - [x] dynamic profile page
-  - [ ] create-prompt page
+  - [x] create-prompt page
+
+- Modify the error handling in each API endpoint.
+  - [x] dynamic profile
+  - [x] todolist
+  - [ ] next-auth
+  - [ ] prompt GET
+  - [ ] prompt POST
+  - [ ] dynamic prompt
 
 
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

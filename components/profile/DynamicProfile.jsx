@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 const DynamicProfile = () => {
     const pathName = usePathname();
+    const router = useRouter();
     const userId = pathName.split('/').pop();
 
     const [posts, setPosts] = useState([]);
@@ -15,8 +16,13 @@ const DynamicProfile = () => {
             const response = await fetch(`/api/users/${userId.toString()}/posts`)
             const data = await response.json();
 
+            if (data.error) {
+                router.push("/404");
+                return;
+            }
             setPosts(data);
         }
+
         fetchPosts();
     }, [])
 

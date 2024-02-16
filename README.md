@@ -54,7 +54,6 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
   - [x] dynamic profile page
   - [ ] create-prompt page
 
-- Create a 404 landing page
 
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -65,6 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
 - Implemented JsonLd into the head element.
+- Create a 404 landing page
 
 #### Changed
 

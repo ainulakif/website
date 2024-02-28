@@ -26,9 +26,6 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 ### [Unreleased]
 
-- useSearchParams build issues
-  - ⚠ Entire page "/update-prompt" deopted into client-side rendering due to "useSearchParams()"
-
 - Refactor CSS
 
 - !!Move weather/population API into environment variables.
@@ -43,18 +40,10 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Make sign-in button disabled while waiting for Auth.
 
-- Modify TODO button to disabled when not login.
-
 - Setup a new method to connect to multiple database.
   - ~~Modify database connection to accept its name as a parameter.~~
   - ~~Move parameter into environment variables.~~
   - Currently connect to the same db.
-
-- Provide fallback title to children for SEO on each document.
-  - [x] update-prompt page
-  - [x] static profile page
-  - [x] dynamic profile page
-  - [x] create-prompt page
 
 - Modify the error handling in each API endpoint.
   - [x] dynamic profile
@@ -64,21 +53,22 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
   - [ ] prompt POST
   - [ ] dynamic prompt
 
-
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [1.5.2] - 2024-02-14
+### [1.5.3] - 2024-02-28
 
 #### Added
 
 - Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
 - Implemented JsonLd into the head element.
-- Create a 404 landing page
+- Create a 404 landing page.
+- Provide fallback title to children for SEO on each document.
 
 #### Changed
 
 - Updated static metadata configuration.
+- Modify TODO with signin condition.
 
 ### [1.4.10] - 2024-02-13
 

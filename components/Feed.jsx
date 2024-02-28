@@ -83,7 +83,7 @@ const Feed = () => {
   }, []);
 
   useEffect(() => {
-    console.log("See allPost: ", allPosts);
+    // console.log("See allPost: ", allPosts);
   
   }, [allPosts]);
   

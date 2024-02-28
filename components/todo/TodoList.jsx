@@ -34,13 +34,13 @@ const TodoList = ({ submitted }) => {
     // console.log("current id: ", todos?.[0]?._id)
     useEffect(() => {
         const todoOutput = tempTodos?.[0]?.todolist?.map(item => item).join(', ');
-            console.log("useeffect temptodos: "+ todoOutput);
+            // console.log("useeffect temptodos: "+ todoOutput);
     }, [tempTodos]);
 
     const currentTodos = () => {
         const todoOutput = todos?.[0]?.todolist?.map(item => item).join(', ');
         // setTempTodos(todoOutput);
-        console.log("Current todos: " + todoOutput);
+        // console.log("Current todos: " + todoOutput);
     }
 
     const submitTodos = async (e) => {

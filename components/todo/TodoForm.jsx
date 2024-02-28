@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const TodoForm = ({ addTodo }) => {
+const TodoForm = ({ addTodo, user }) => {
     const [input, setInput] = useState('');
 
     const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ const TodoForm = ({ addTodo }) => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Add a new todo..."
+                placeholder={"Add todo as " + user}
                 className="border border-gray-300 rounded-l-md p-2"
             />
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-md">Add</button>

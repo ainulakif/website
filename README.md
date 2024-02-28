@@ -43,6 +43,8 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Make sign-in button disabled while waiting for Auth.
 
+- Modify TODO button to disabled when not login.
+
 - Setup a new method to connect to multiple database.
   - ~~Modify database connection to accept its name as a parameter.~~
   - ~~Move parameter into environment variables.~~

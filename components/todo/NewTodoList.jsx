@@ -1,16 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 import TodoForm from './TodoForm'
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
 
+    const { data: session } = useSession();
+
     // intial todo
     const [todos, setTodos] = useState([]);
     // temporary todo so when reset, I doesn't to call the api again.
-    const [tempTodos, setTempTodos] = useState([])
+    // const [tempTodos, setTempTodos] = useState([])
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -27,7 +30,7 @@ const TodoList = () => {
     }, [])
 
     useEffect(() => {
-        console.log("full todos: ", todos);
+        // console.log("full todos: ", todos);
         // console.log("todos: ", todos?.[0]?.isComplete);
     }, [todos])
 
@@ -75,8 +78,8 @@ const TodoList = () => {
             const updatedTodo = await response.json();
 
             const updatingTodos = todos.map(todo => {
-                if(todo._id === id) {
-                    return { ...todo, isComplete: updatedTodo.isComplete}
+                if (todo._id === id) {
+                    return { ...todo, isComplete: updatedTodo.isComplete }
                     // return { ...todo, isComplete: !todo.isComplete}
                 }
                 return todo;
@@ -106,18 +109,39 @@ const TodoList = () => {
     return (
         <>
             {/* <h1 className="text-2xl font-bold mb-4">Todo List</h1> */}
-            <TodoForm addTodo={addTodo} />
-            <ul>
+            {session?.user ? (
+                <>
+                    <TodoForm addTodo={addTodo} user={session?.user.name} />
+
+                    <ul>
+                        {todos.map((todo) => (
+                            <li key={todo._id} className={todo.isComplete ? "line-through" : ""}>
+                                <TodoItem
+                                    todo={todo}
+                                    toggleTodo={toggleTodo}
+                                    deleteTodo={deleteTodo}
+                                    userSession={true}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </>
+
+            ) : (
+                <ul>
                 {todos.map((todo) => (
-                    <li key={todo._id} className={todo.isComplete? "line-through" : ""}>
+                    <li key={todo._id} className={todo.isComplete ? "line-through" : ""}>
                         <TodoItem
                             todo={todo}
-                            toggleTodo={toggleTodo}
-                            deleteTodo={deleteTodo}
+                            toggleTodo={() => {}}
+                            deleteTodo={() => {}}
+                            userSession={false}
                         />
                     </li>
                 ))}
             </ul>
+            )}
+
         </>
     )
 }

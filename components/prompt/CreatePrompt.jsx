@@ -1,19 +1,12 @@
-// "use client";
+"use client";
 
-// import { useState } from 'react'
-// import { useSession } from 'next-auth/react';
-// import { useRouter } from 'next/navigation';
+import { useState } from 'react'
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-// import Form from "@components/Form";
+import Form from "@components/Form";
 
-import CreatePrompt from "@components/prompt/CreatePrompt"
-
-export const metadata = {
-    title: "Create Prompt"
-}
-
-const CreatePromptPage = () => {
-    /*
+const CreatePrompt = () => {
     const router = useRouter();
     const { data: session } = useSession();
 
@@ -46,18 +39,17 @@ const CreatePromptPage = () => {
             setSubmitting(false);
         }
     }
-*/
-    return (
-        <CreatePrompt />
 
-        // <Form
-        //     type="Create"
-        //     post={post}
-        //     setPost={setPost}
-        //     submitting={submitting}
-        //     handleSubmit={createPrompt}
-        // />
+    return (
+
+        <Form
+            type="Create"
+            post={post}
+            setPost={setPost}
+            submitting={submitting}
+            handleSubmit={createPrompt}
+        />
     )
 }
 
-export default CreatePromptPage
+export default CreatePrompt

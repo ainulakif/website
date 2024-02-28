@@ -9,10 +9,11 @@ export const connectToDB = async (dbParameter) => {
     // if(isConnected) {
     //     console.log('MongoDB is already connected to: ', dbParameter);
     // }
-    if (connections[dbParameter]) {
-        console.log(`MongoDB is already connected to: ${dbParameter}`);
-        // return;
-    }
+
+    // if (connections[dbParameter]) {
+    //     console.log(`MongoDB is already connected to: ${dbParameter}`);
+    //     // return;
+    // }
 
     // try {
     //     await mongoose.connect(process.env.MONGODB_URI, {
@@ -32,7 +33,7 @@ export const connectToDB = async (dbParameter) => {
 
         connections[dbParameter] = newConnection;
 
-        console.log(`MongoDB is connected to: ${dbParameter}`);
+        // console.log(`MongoDB is connected to: ${dbParameter}`);
     } catch (error) {
         console.log("error on database.js: ",error);
     }
@@ -47,6 +48,6 @@ export const closeConnection = async (dbParameter) => {
     if (connections[dbParameter]) {
         await connections[dbParameter].close();
         delete connections[dbParameter];
-        console.log(`MongoDB connection to ${dbParameter} closed`);
+        // console.log(`MongoDB connection to ${dbParameter} closed`);
     }
 }

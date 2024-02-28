@@ -26,9 +26,6 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 ### [Unreleased]
 
-- useSearchParams build issues
-  - ⚠ Entire page "/update-prompt" deopted into client-side rendering due to "useSearchParams()"
-
 - Refactor CSS
 
 - !!Move weather/population API into environment variables.
@@ -48,14 +45,30 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
   - ~~Move parameter into environment variables.~~
   - Currently connect to the same db.
 
+- Modify the error handling in each API endpoint.
+  - [x] dynamic profile
+  - [x] todolist
+  - [ ] next-auth
+  - [ ] prompt GET
+  - [ ] prompt POST
+  - [ ] dynamic prompt
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [1.5.0] - 2024-02-14
+### [1.5.3] - 2024-02-28
 
 #### Added
 
-- Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel
+- Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
+- Implemented JsonLd into the head element.
+- Create a 404 landing page.
+- Provide fallback title to children for SEO on each document.
+
+#### Changed
+
+- Updated static metadata configuration.
+- Modify TODO with signin condition.
 
 ### [1.4.10] - 2024-02-13
 
@@ -132,3 +145,4 @@ Special thanks to the Author of these courses:
 - [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.
 - [REST COUNTRIES 🇵🇪](https://restcountries.com/) - Get information about countries via a RESTful API.
 - [OpenWeather API](https://openweathermap.org/api) - Get Current weather data collection.
+- [Metadata API](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) - Recommended to built in `generateMetaData` method.

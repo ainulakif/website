@@ -1,18 +1,12 @@
-// "use client";
+"use client";
 
-// import { useSession } from "next-auth/react";
-// import { useRouter } from "next/navigation";
-// import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
-// import Profile from "@components/Profile";
-import StaticProfile from "@components/profile/StaticProfile";
+import Profile from "@components/Profile";
 
-export const metadata = {
-    title: "My Profile"
-}
-
-const MyProfile = () => {
-    {/*
+const StaticProfile = () => {
     const router = useRouter();
     const { data: session } = useSession();
 
@@ -56,10 +50,8 @@ const MyProfile = () => {
         }
     }
     // console.log("session Post: ", posts);
-*/}
+
     return (
-        <StaticProfile />
-        /*
         <Profile
             name="My"
             desc="Welcome to your personalized profile page"
@@ -67,8 +59,7 @@ const MyProfile = () => {
             handleEdit={handleEdit}
             handleDelete={handleDelete}
         />
-    */
     )
 }
 
-export default MyProfile;
+export default StaticProfile;

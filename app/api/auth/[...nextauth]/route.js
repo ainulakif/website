@@ -1,7 +1,8 @@
+import { models, model } from "mongoose";
 import NextAuth from "next-auth/next";;
 import GoogleProvider from "next-auth/providers/google";
 
-import User from "@models/user";
+import UserSchema from "@models/user";
 import { connectToDB } from "@utils/database";
 
 //handle authentication
@@ -14,6 +15,7 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session }) {
+            const User = models.User || model('User', UserSchema);
             const sessionUser = await User.findOne({
                 email: session.user.email
             })
@@ -24,7 +26,7 @@ const handler = NextAuth({
         },
         async signIn({ profile }) {
             try {
-                await connectToDB(process.env.dbName1);
+                const { User } = await connectToDB(process.env.dbName1);
                 //check if a user is already existed
                 const userExists = await User.findOne({
                     email: profile.email,
@@ -41,7 +43,7 @@ const handler = NextAuth({
     
                 return true;
             } catch (error) {
-                console.log("Error at Route.js :", error);
+                console.error(`[auth.js] Error on auth: ${error.message}`);
                 return false;
             }
         }

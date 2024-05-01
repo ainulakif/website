@@ -10,7 +10,7 @@ export const GET = async (request) => {
 
         // await closeConnection(process.env.dbName1);
 
-        console.log(`[prompt.js]after find: ,`, prompts);
+        // console.log(`[prompt.js]after find: ,`, prompts);
 
         return new Response(JSON.stringify(prompts), { status: 200 })
     } catch (error) {

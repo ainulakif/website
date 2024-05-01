@@ -5,9 +5,15 @@ import UserSchema from "@models/user";
 
 // let isConnected = false; // track connection status
 const connections = {};
+let connection;
 
 export const connectToDB = async (dbParameter) => {
     mongoose.set('strictQuery', true);
+
+    if(connection) {
+        console.log('[auth.js] MongoDB is already connected to: ', dbParameter);
+        return;
+    }
 
     // if(isConnected) {
     //     console.log('MongoDB is already connected to: ', dbParameter);
@@ -37,10 +43,11 @@ export const connectToDB = async (dbParameter) => {
         //     dbName: dbParameter,
         // });
 
-        // connections[dbParameter] = newConnection;
+        connection = newConnection;
 
+        // should compare dbName
         const db = newConnection.useDb(dbParameter);
-        
+
         const User = newConnection.model('User', UserSchema);
         const Prompt = newConnection.model('Prompt', PromptSchema);
         const Todolist = newConnection.model('Todolist', TodolistSchema);
@@ -50,7 +57,7 @@ export const connectToDB = async (dbParameter) => {
         
         //console.log("Connections: ",mongoose.connections);
 
-        // console.log(`[db.js]MongoDB is connected to: ${dbParameter}`);
+        console.log(`[db.js]MongoDB is connected to: ${dbParameter}`);
         // console.log(`[db.js]MongoDB is connected to: ${newConnection}`);
     } catch (error) {
         console.log("catched error on database.js: ",error);
@@ -60,6 +67,10 @@ export const connectToDB = async (dbParameter) => {
     // } catch (error) {
     //     console.log("error on database.js: ",error);
     // }
+}
+
+export const getConnection = () => {
+    return connection;
 }
 
 export const closeConnection = async (dbParameter) => {

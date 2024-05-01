@@ -3,7 +3,7 @@ import NextAuth from "next-auth/next";;
 import GoogleProvider from "next-auth/providers/google";
 
 import UserSchema from "@models/user";
-import { connectToDB } from "@utils/database";
+import { connectToDB, getConnection } from "@utils/database";
 
 //handle authentication
 const handler = NextAuth({
@@ -15,13 +15,21 @@ const handler = NextAuth({
     ],
     callbacks: {
         async session({ session }) {
-            const User = models.User || model('User', UserSchema);
-            const sessionUser = await User.findOne({
+            //const User = models.User || model('User', UserSchema);
+
+            const connection = await getConnection();
+
+            console.log("[session]: before findOne");
+            console.log("[session]: ", session.user.email);
+
+            // check if session user === email
+            const sessionUser = await connection.model('User').findOne({
                 email: session.user.email
             })
-    
+            console.log("[session]: after findOne");
+
             session.user.id = sessionUser._id.toString();
-    
+
             return session;
         },
         async signIn({ profile }) {
@@ -31,7 +39,7 @@ const handler = NextAuth({
                 const userExists = await User.findOne({
                     email: profile.email,
                 });
-    
+
                 //if not, create a new user and save it to the database
                 if (!userExists) {
                     await User.create({
@@ -40,7 +48,6 @@ const handler = NextAuth({
                         image: profile.picture
                     })
                 }
-    
                 return true;
             } catch (error) {
                 console.error(`[auth.js] Error on auth: ${error.message}`);

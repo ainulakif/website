@@ -10,10 +10,14 @@ let connection;
 export const connectToDB = async (dbParameter) => {
     mongoose.set('strictQuery', true);
 
-    if(connection) {
-        console.log('[auth.js] MongoDB is already connected to: ', dbParameter);
-        return;
-    }
+    // is it good practice early to not establish another same connection
+    // when the session is already established
+    // but it will break another api request that require another connection
+    // console.log('[auth.js] Check connection: ', connection);
+    // if(connection) {
+    //     console.log('[auth.js] MongoDB is already connected to: ', dbParameter);
+    //     return;
+    // }
 
     // if(isConnected) {
     //     console.log('MongoDB is already connected to: ', dbParameter);

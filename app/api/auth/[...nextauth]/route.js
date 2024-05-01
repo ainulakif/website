@@ -18,15 +18,12 @@ const handler = NextAuth({
             //const User = models.User || model('User', UserSchema);
 
             const connection = await getConnection();
-
-            console.log("[session]: before findOne");
             console.log("[session]: ", session.user.email);
 
             // check if session user === email
             const sessionUser = await connection.model('User').findOne({
                 email: session.user.email
             })
-            console.log("[session]: after findOne");
 
             session.user.id = sessionUser._id.toString();
 

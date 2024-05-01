@@ -25,7 +25,9 @@ export const POST = async (request) => {
     const { todolist, isComplete } = await request.json();
     
     try {
-        await connectToDB(process.env.dbName2);
+        
+        const { Todolist } = await connectToDB(process.env.dbName2);
+        // await connectToDB(process.env.dbName2);
         const newTodolist = new Todolist({
             todolist,
             isComplete
@@ -38,8 +40,9 @@ export const POST = async (request) => {
         )
 
     } catch (error) {
+        console.error(`[todolist.js] Error creating todo: ${error.message}`);
         return new Response(
-            JSON.stringify({ error: "Failed to create a new todo" }),
+            JSON.stringify({ error: "Failed to create a new todo", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
     }

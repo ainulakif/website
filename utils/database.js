@@ -50,7 +50,8 @@ export const connectToDB = async (dbParameter) => {
         connection = newConnection;
 
         // should compare dbName
-        const db = newConnection.useDb(dbParameter);
+        // to use multitenant connection
+        // const x = newConnection.useDb(dbParameter, {useCache: true});
 
         const User = newConnection.model('User', UserSchema);
         const Prompt = newConnection.model('Prompt', PromptSchema);

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Population from "@components/countries/Population";
 import ChartDetails from "@components/countries/ChartDetails";
 
 const TabbedChart = () => {
@@ -33,11 +32,9 @@ const TabbedChart = () => {
     // console.log("length of array: ", result.length);
     return (
         <section className="w-full flex-center flex-col" style={{ height: "80vh" }}>
-            {/* <Population data={{}} /> */}
             <ChartDetails output={result} />
         </section>
     )
-    //   https://restcountries.com/v3.1/all?fields=name,population
 }
 
 export default TabbedChart

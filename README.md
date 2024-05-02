@@ -28,7 +28,7 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Refactor CSS
 
-- !!Move weather/population API into environment variables (modify so it receive props from server-side).
+- ~~Move weather/population API into environment variables (modify so it receive props from server-side).~~
 
 - In production, restcountries API can't fetch the data
 

@@ -1,12 +1,7 @@
 export const GET = async () => {
-    // https://restcountries.com/v3.1/all?fields=name,population
     try {
         const response = await fetch(process.env.COUNTRIES_API_URL);
         const data = await response.json();
-
-        // console.log("[countries api] response: ", JSON.stringify(response));
-        // console.log("[countries api] response: ", response.json());
-        // console.log("[countries api] data: ", data);
         
         return new Response(JSON.stringify(data), { status: 200 });
     } catch (error) {

@@ -28,7 +28,7 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Refactor CSS
 
-- !!Move weather/population API into environment variables.
+- !!Move weather/population API into environment variables (modify so it receive props from server-side).
 
 - Showcase mongodb as public (to-do list)
   - ~~Add radio button for done/undone.~~
@@ -40,21 +40,16 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Make sign-in button disabled while waiting for Auth.
 
-- Setup a new method to connect to multiple database.
-  - ~~Modify database connection to accept its name as a parameter.~~
-  - ~~Move parameter into environment variables.~~
-  - Currently connect to the same db.
-
-- Modify the error handling in each API endpoint.
-  - [x] dynamic profile
-  - [x] todolist
-  - [ ] next-auth
-  - [ ] prompt GET
-  - [ ] prompt POST
-  - [ ] dynamic prompt
-
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+### [1.6.7] - 2024-05-02
+
+#### Changed
+
+- Modify from single connection to multiple connection. The database separate `prompt` and `todolist`.
+  - Update the API endpoint to work with the database and also the session.
+  - Modify the error handling in each API endpoint.
 
 ### [1.5.3] - 2024-02-28
 

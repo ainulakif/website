@@ -10,9 +10,6 @@ import {
 import { Bar } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels"
 
-// uninstall the package
-import { faker } from "@faker-js/faker";
-
 ChartJS.register(
     CategoryScale,
     LinearScale,

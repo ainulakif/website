@@ -6,7 +6,7 @@ import Prompt from "@models/prompt";
 
 export const GET = async (request, { params }) => {
     try {
-        await connectToDB(process.env.dbName1);
+        const { Prompt } = await connectToDB(process.env.dbName1);
 
         const prompts = await Prompt.find({
             //[id] as dynamic paramter
@@ -16,7 +16,8 @@ export const GET = async (request, { params }) => {
         return new Response(JSON.stringify(prompts), { status: 200 })
     } catch (error) {
         return new Response(
-            JSON.stringify({ error: "Failed to fetch all prompts" }),
+            console.error(`[users.id.js] Error fetching all prompts: ${error.message}`),
+            JSON.stringify({ error: "Failed to fetch all prompts", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
     }

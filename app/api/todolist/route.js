@@ -4,14 +4,17 @@ import Todolist from "@models/todolist";
 // retrieve all Todo items
 export const GET = async (request) => {
     try {
-        await connectToDB(process.env.dbName2);
+        const { Todolist } = await connectToDB(process.env.dbName2);
 
         const todolists = await Todolist.find({}).populate('_id');
+        
+        // console.log(`[todolist.js]after find: ,`, todolists);
 
         return new Response(JSON.stringify(todolists), { status: 200 })
     } catch (error) {
+        console.error(`[todolist.js] Error fetching todo lists: ${error.message}`);
         return new Response(
-            JSON.stringify({ error: "Failed to create a new todo" }),
+            JSON.stringify({ error: "Failed to get todolist", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
     }
@@ -22,7 +25,9 @@ export const POST = async (request) => {
     const { todolist, isComplete } = await request.json();
     
     try {
-        await connectToDB(process.env.dbName2);
+        
+        const { Todolist } = await connectToDB(process.env.dbName2);
+        // await connectToDB(process.env.dbName2);
         const newTodolist = new Todolist({
             todolist,
             isComplete
@@ -35,8 +40,9 @@ export const POST = async (request) => {
         )
 
     } catch (error) {
+        console.error(`[todolist.js] Error creating todo: ${error.message}`);
         return new Response(
-            JSON.stringify({ error: "Failed to create a new todo" }),
+            JSON.stringify({ error: "Failed to create a new todo", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );
     }

@@ -11,6 +11,6 @@ const TodolistSchema = new Schema({
 
 });
 
-const Todolist = models.Todolist || model('Todolist', TodolistSchema);
+// const Todolist = models.Todolist || model('Todolist', TodolistSchema);
 
-export default Todolist;
+export default TodolistSchema;

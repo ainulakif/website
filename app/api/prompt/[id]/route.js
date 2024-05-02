@@ -4,7 +4,7 @@ import Prompt from "@models/prompt";
 // GET (read request)
 export const GET = async (request, { params }) => {
     try {
-        await connectToDB(process.env.dbName1);
+        const { Prompt } = await connectToDB(process.env.dbName1);
 
         const prompt = await Prompt.findById(params.id).populate('creator');
         
@@ -12,7 +12,11 @@ export const GET = async (request, { params }) => {
 
         return new Response(JSON.stringify(prompt), { status: 200 })
     } catch (error) {
-        return new Response("Failed to fetch all prompt", { status: 500 })
+        console.error(`[prompt.id.js] Error fetching all prompts: ${error.message}`);
+        return new Response(
+            JSON.stringify({ error: "Failed to fetch all prompts", details: error.message }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
     }
 }
 
@@ -22,7 +26,7 @@ export const PATCH = async (request, { params }) => {
     const { prompt, tag } = await request.json();
 
     try {
-        await connectToDB(process.env.dbName1);
+        const { Prompt } = await connectToDB(process.env.dbName1);
 
         const existingPrompt = await Prompt.findById(params.id);
 
@@ -35,21 +39,28 @@ export const PATCH = async (request, { params }) => {
 
         return new Response(JSON.stringify(existingPrompt), { status: 200 });
     } catch (error) {
-        return new Response("Failed to update prompt", { status: 500 });
+        console.error(`[prompt.id.js] Error updating prompts: ${error.message}`);
+        return new Response(
+            JSON.stringify({ error: "Failed to update prompt", details: error.message }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
     }
 }
 
 // DELETE (delete request)
 export const DELETE = async (request, { params }) => {
     try {
-        await connectToDB(process.env.dbName1);
+        const { Prompt } = await connectToDB(process.env.dbName1);
         // deprecated
         // await Prompt.findByIdAndRemove(params.id);
         await Prompt.findByIdAndDelete(params.id);
         
         return new Response("Prompt deleted successfully", { status: 200 });
     } catch (error) {
-        console.log("entering error");
-        return new Response("Failed to delete prompt", { status: 500 });
+        console.error(`[prompt.id.js] Error deleting prompts: ${error.message}`);
+        return new Response(
+            JSON.stringify({ error: "Failed to delete prompts", details: error.message }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
     }
 }

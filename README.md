@@ -30,6 +30,8 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - !!Move weather/population API into environment variables (modify so it receive props from server-side).
 
+- In production, restcountries API can't fetch the data
+
 - Showcase mongodb as public (to-do list)
   - ~~Add radio button for done/undone.~~
   - ~~Instead of remove the list item, update item to strikethrough.~~

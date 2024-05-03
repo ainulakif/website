@@ -12,7 +12,7 @@ export const GET = async (request) => {
 
         return new Response(JSON.stringify(todolists), { status: 200 })
     } catch (error) {
-        console.error(`[todolist.js] Error fetching todo lists: ${error.message}`);
+        // console.error(`[todolist.js] Error fetching todo lists: ${error.message}`);
         return new Response(
             JSON.stringify({ error: "Failed to get todolist", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
@@ -40,7 +40,7 @@ export const POST = async (request) => {
         )
 
     } catch (error) {
-        console.error(`[todolist.js] Error creating todo: ${error.message}`);
+        // console.error(`[todolist.js] Error creating todo: ${error.message}`);
         return new Response(
             JSON.stringify({ error: "Failed to create a new todo", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }

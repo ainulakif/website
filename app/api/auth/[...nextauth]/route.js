@@ -47,7 +47,7 @@ const handler = NextAuth({
                 }
                 return true;
             } catch (error) {
-                console.error(`[auth.js] Error on auth: ${error.message}`);
+                // console.error(`[auth.js] Error on auth: ${error.message}`);
                 return false;
             }
         }

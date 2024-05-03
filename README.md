@@ -42,6 +42,11 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Make sign-in button disabled while waiting for Auth.
 
+- Set loading while props fetching the data.
+  - appear an black background overlay that shows _loading_
+
+- ~~Removed 404 page and then `routed` to not-found page (triggering `notFound()` function).~~
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -59,20 +64,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
 - Implemented JsonLd into the head element.
-- Create a 404 landing page.
-- Provide fallback title to children for SEO on each document.
+- Created a 404 landing page.
+- Provided fallback title to children for SEO on each document.
 
 #### Changed
 
 - Updated static metadata configuration.
-- Modify TODO with signin condition.
+- Modified TODO with signin condition.
 
 ### [1.4.10] - 2024-02-13
 
 #### Added
 
 - To-do list
-  - Showcase mongodb usecase as public.
+  - Showcased mongodb usecase as public.
 
 #### Changed
 

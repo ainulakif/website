@@ -12,11 +12,11 @@ export const GET = async (request, { params }) => {
             //[id] as dynamic paramter
             creator: params.id
         }).populate('creator');
-
+        
         return new Response(JSON.stringify(prompts), { status: 200 })
     } catch (error) {
+        // console.error(`[users.id.js] Error fetching all prompts: ${error.message}`),
         return new Response(
-            // console.error(`[users.id.js] Error fetching all prompts: ${error.message}`),
             JSON.stringify({ error: "Failed to fetch all prompts", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }
         );

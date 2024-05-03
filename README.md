@@ -45,18 +45,17 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 - Set loading while props fetching the data.
   - appear an black background overlay that shows _loading_
 
-- ~~Removed 404 page and then `routed` to not-found page (triggering `notFound()` function).~~
-
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [1.6.7] - 2024-05-02
+### [1.6.13] - 2024-05-03
 
 #### Changed
 
 - Modify from single connection to multiple connection. The database separate `prompt` and `todolist`.
   - Update the API endpoint to work with the database and also the session.
   - Modify the error handling in each API endpoint.
+- Removed 404 page and then `routed` to not-found page (triggering `notFound()` function).
 
 ### [1.5.3] - 2024-02-28
 

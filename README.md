@@ -144,6 +144,7 @@ Special thanks to the Author of these courses:
 ## Resources
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Next.js Production Checklist](https://nextjs.org/docs/pages/building-your-application/deploying/production-checklist) - best practices when building Next.js application.
 - [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.
 - [REST COUNTRIES 🇵🇪](https://restcountries.com/) - Get information about countries via a RESTful API.
 - [OpenWeather API](https://openweathermap.org/api) - Get Current weather data collection.

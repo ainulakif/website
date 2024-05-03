@@ -14,7 +14,7 @@ export const GET = async (request) => {
 
         return new Response(JSON.stringify(prompts), { status: 200 })
     } catch (error) {
-        console.error(`[prompt.js] Error fetching all prompts: ${error.message}`);
+        // console.error(`[prompt.js] Error fetching all prompts: ${error.message}`);
         return new Response(
             JSON.stringify({ error: "Failed to fetch all prompts", details: error.message }),
             { status: 500, headers: { 'Content-Type': 'application/json' } }

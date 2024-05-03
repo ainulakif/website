@@ -28,7 +28,9 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Refactor CSS
 
-- !!Move weather/population API into environment variables (modify so it receive props from server-side).
+- ~~Move weather/population API into environment variables (modify so it receive props from server-side).~~
+
+- In production, restcountries API can't fetch the data
 
 - Showcase mongodb as public (to-do list)
   - ~~Add radio button for done/undone.~~
@@ -40,16 +42,20 @@ A [portfolio website application](https://ainulakif-website.vercel.app/) that I 
 
 - Make sign-in button disabled while waiting for Auth.
 
+- Set loading while props fetching the data.
+  - appear an black background overlay that shows _loading_
+
 >The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [1.6.7] - 2024-05-02
+### [1.6.13] - 2024-05-03
 
 #### Changed
 
 - Modify from single connection to multiple connection. The database separate `prompt` and `todolist`.
   - Update the API endpoint to work with the database and also the session.
   - Modify the error handling in each API endpoint.
+- Removed 404 page and then `routed` to not-found page (triggering `notFound()` function).
 
 ### [1.5.3] - 2024-02-28
 
@@ -57,20 +63,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Enabled [Web Analytics](https://vercel.com/docs/analytics/quickstart) in Vercel.
 - Implemented JsonLd into the head element.
-- Create a 404 landing page.
-- Provide fallback title to children for SEO on each document.
+- Created a 404 landing page.
+- Provided fallback title to children for SEO on each document.
 
 #### Changed
 
 - Updated static metadata configuration.
-- Modify TODO with signin condition.
+- Modified TODO with signin condition.
 
 ### [1.4.10] - 2024-02-13
 
 #### Added
 
 - To-do list
-  - Showcase mongodb usecase as public.
+  - Showcased mongodb usecase as public.
 
 #### Changed
 
@@ -137,6 +143,7 @@ Special thanks to the Author of these courses:
 ## Resources
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Next.js Production Checklist](https://nextjs.org/docs/pages/building-your-application/deploying/production-checklist) - best practices when building Next.js application.
 - [Vercel Documentation](https://vercel.com/docs/getting-started-with-vercel) - learn about Vercel features and deploy your application.
 - [REST COUNTRIES 🇵🇪](https://restcountries.com/) - Get information about countries via a RESTful API.
 - [OpenWeather API](https://openweathermap.org/api) - Get Current weather data collection.
